@@ -9,13 +9,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
-import { Menu, Home, User, Code, Briefcase, Github, Linkedin, Mail, Sun, Moon, Laptop } from "lucide-react"
+import { Menu, Home, User, Code, Briefcase, Github, Linkedin, Mail, Sun, Moon, Laptop, Globe } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useLanguage } from "@/components/Language/language-provider"
 
 export function MobileNavigation() {
   const [open, setOpen] = useState(false)
   const { setTheme, theme } = useTheme()
   const [isMobile, setIsMobile] = useState(false)
+  const { t, language, toggleLanguage } = useLanguage()
   
   useEffect(() => {
     const checkMobile = () => {
@@ -48,7 +50,7 @@ export function MobileNavigation() {
           className={`${isMobile ? 'block' : 'hidden'} rounded-full w-10 h-10 transition-all duration-300 hover:bg-primary/10`}
         >
           <Menu className="h-5 w-5" />
-          <span className="sr-only">Open mobile menu</span>
+          <span className="sr-only">{t("Open mobile menu")}</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[85%] max-w-[320px] py-8">
@@ -57,7 +59,7 @@ export function MobileNavigation() {
         </SheetHeader>
         
         <div className="flex flex-col space-y-1">
-          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">Navegação</h3>
+          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">{t("command.nav")}</h3>
           
           <Button
             variant="ghost"
@@ -65,7 +67,7 @@ export function MobileNavigation() {
             onClick={() => scrollToSection("hero")}
           >
             <Home className="mr-3 h-5 w-5" />
-            Início
+            {t("nav.home")}
           </Button>
           
           <Button
@@ -74,7 +76,7 @@ export function MobileNavigation() {
             onClick={() => scrollToSection("about")}
           >
             <User className="mr-3 h-5 w-5" />
-            Sobre Mim
+            {t("nav.about")}
           </Button>
           
           <Button
@@ -83,7 +85,7 @@ export function MobileNavigation() {
             onClick={() => scrollToSection("projects")}
           >
             <Code className="mr-3 h-5 w-5" />
-            Projetos
+            {t("nav.projects")}
           </Button>
           
           <Button
@@ -92,12 +94,12 @@ export function MobileNavigation() {
             onClick={() => scrollToSection("experience")}
           >
             <Briefcase className="mr-3 h-5 w-5" />
-            Experiência
+            {t("nav.experience")}
           </Button>
           
           <div className="border-t my-4"> </div>
           
-          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">Tema</h3>
+          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">{t("command.theme")}</h3>
           
           <div className="grid grid-cols-3 gap-2 px-4 py-2">
             <Button
@@ -106,7 +108,7 @@ export function MobileNavigation() {
               onClick={() => setTheme("light")}
             >
               <Sun className="h-5 w-5" />
-              <span className="text-xs">Claro</span>
+              <span className="text-xs">{t("theme.light")}</span>
             </Button>
             
             <Button
@@ -115,7 +117,7 @@ export function MobileNavigation() {
               onClick={() => setTheme("dark")}
             >
               <Moon className="h-5 w-5" />
-              <span className="text-xs">Escuro</span>
+              <span className="text-xs">{t("theme.dark")}</span>
             </Button>
             
             <Button
@@ -124,20 +126,46 @@ export function MobileNavigation() {
               onClick={() => setTheme("system")}
             >
               <Laptop className="h-5 w-5" />
-              <span className="text-xs">Sistema</span>
+              <span className="text-xs">{t("theme.system")}</span>
             </Button>
           </div>
           
           <div className="border-t my-4"> </div>
           
-          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">Social</h3>
+          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">Language / Idioma</h3>
+          
+          <div className="grid grid-cols-2 gap-2 px-4 py-2">
+            <Button
+              variant={language === "en" ? "default" : "outline"}
+              className="flex justify-center items-center gap-2 py-4"
+              onClick={() => toggleLanguage()}
+              disabled={language === "en"}
+            >
+              <Globe className="h-4 w-4" />
+              <span>English</span>
+            </Button>
+            
+            <Button
+              variant={language === "pt" ? "default" : "outline"}
+              className="flex justify-center items-center gap-2 py-4"
+              onClick={() => toggleLanguage()}
+              disabled={language === "pt"}
+            >
+              <Globe className="h-4 w-4" />
+              <span>Português</span>
+            </Button>
+          </div>
+          
+          <div className="border-t my-4"> </div>
+          
+          <h3 className="text-sm font-medium text-muted-foreground px-4 py-2">{t("command.social")}</h3>
           
           <div className="grid grid-cols-3 gap-2 px-4 py-2">
             <Button
               variant="outline"
               size="icon"
               className="h-14 p-6 aspect-square"
-              onClick={() => window.open("https://github.com", "_blank")}
+              onClick={() => window.open("https://github.com/Williamlp-dev", "_blank")}
             >
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
@@ -147,7 +175,7 @@ export function MobileNavigation() {
               variant="outline"
               size="icon" 
               className="h-14 p-6 aspect-square"
-              onClick={() => window.open("https://linkedin.com", "_blank")}
+              onClick={() => window.open("https://www.linkedin.com/in/william-lopes-5537792a1/", "_blank")}
             >
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
