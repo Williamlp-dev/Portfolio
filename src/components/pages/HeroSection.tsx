@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Github, Linkedin, MoveRight } from "lucide-react"
+import { ChevronDown, Github, Linkedin, Mail, MoveRight } from "lucide-react"
 import Link from "next/link"
 import { CommandKButton } from "../navegation/CommandMenuButton"
 import { useLanguage } from "@/components/Language/language-provider"
@@ -57,7 +57,7 @@ export function Hero() {
             <p className="font-mono text-sm text-primary">
               <span className="mr-2">{">"}</span>
               {typedText}
-              <span className="animate-blink">_</span>
+              <span className="animate-caret-blink">_</span>
             </p>
           </div>
         </motion.div>
@@ -105,16 +105,23 @@ export function Hero() {
           className="mt-12 flex items-center justify-center space-x-4"
         >
           <Link href="https://github.com/Williamlp-dev" target="_blank">
-            <Button variant="ghost" size="icon" className="rounded-full h-12 w-12 hover:bg-primary/10 hover:text-primary transition-colors duration-300">
+            <Button variant="ghost" size="icon" className="rounded h-12 w-12 hover:bg-primary/10 hover:text-primary transition-colors duration-300">
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Button>
           </Link>
           
           <Link href="https://www.linkedin.com/in/william-lopes-5537792a1/" target="_blank">
-            <Button variant="ghost" size="icon" className="rounded-full h-12 w-12 hover:bg-primary/10 hover:text-primary transition-colors duration-300">
+            <Button variant="ghost" size="icon" className="rounded h-12 w-12 hover:bg-primary/10 hover:text-primary transition-colors duration-300">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
+            </Button>
+          </Link>
+
+          <Link href="" target="_blank">
+            <Button variant="ghost" size="icon" className="rounded h-12 w-12 hover:bg-primary/10 hover:text-primary transition-colors duration-300">
+              <Mail className="h-5 w-5" />
+              <span className="sr-only">(t{"command.contact"})</span>
             </Button>
           </Link>
         </motion.div>

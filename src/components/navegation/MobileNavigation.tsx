@@ -43,7 +43,7 @@ export function MobileNavigation() {
   
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-         <SheetTrigger asChild>
+      <SheetTrigger asChild>
         <Button
           variant="ghost"
           size="icon"
@@ -53,7 +53,7 @@ export function MobileNavigation() {
           <span className="sr-only">{t("Open mobile menu")}</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[85%] max-w-[320px] py-8">
+      <SheetContent side="right" className="w-[85%] max-w-[320px] py-8 overflow-y-auto">
         <SheetHeader className="mb-6">
           <SheetTitle className="text-xl">Menu</SheetTitle>
         </SheetHeader>
@@ -137,22 +137,20 @@ export function MobileNavigation() {
           <div className="grid grid-cols-2 gap-2 px-4 py-2">
             <Button
               variant={language === "en" ? "default" : "outline"}
-              className="flex justify-center items-center gap-2 py-4"
+              className="flex flex-col h-auto py-4 gap-1"
               onClick={() => toggleLanguage()}
-              disabled={language === "en"}
             >
-              <Globe className="h-4 w-4" />
-              <span>English</span>
+              <Globe className="h-5 w-5" />
+              <span className="text-xs">English</span>
             </Button>
             
             <Button
               variant={language === "pt" ? "default" : "outline"}
-              className="flex justify-center items-center gap-2 py-4"
+              className="flex flex-col h-auto py-4 gap-1"
               onClick={() => toggleLanguage()}
-              disabled={language === "pt"}
             >
-              <Globe className="h-4 w-4" />
-              <span>Português</span>
+              <Globe className="h-5 w-5" />
+              <span className="text-xs">Português</span>
             </Button>
           </div>
           

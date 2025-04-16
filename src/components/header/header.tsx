@@ -166,8 +166,8 @@ export function Header() {
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>
-                      {t("button.press")} <kbd className="px-1 py-0.5 text-xs border rounded bg-muted">⌘</kbd>
-                      <kbd className="px-1 py-0.5 text-xs border rounded bg-muted">K</kbd>
+                      {t("button.press")} <kbd className="px-1 py-0.5 text-xs  border rounded bg-muted text-primary shadow-xs hover:bg-destructive/90">⌘</kbd>
+                      <kbd className="px-1 py-0.5 text-xs border rounded bg-muted text-primary shadow-xs hover:bg-destructive/90">K</kbd>
                     </p>
                   </TooltipContent>
                 </Tooltip>

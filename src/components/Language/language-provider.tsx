@@ -30,6 +30,7 @@ const translations: { [key: string]: { [key: string]: string } } = {
     "command.nav": "Navigation",
     "command.theme": "Theme",
     "command.social": "Social",
+    "command.contact": "Contact",
     
     // Button
     "button.press": "Press",
@@ -69,6 +70,7 @@ const translations: { [key: string]: { [key: string]: string } } = {
     "command.nav": "Navegação",
     "command.theme": "Tema",
     "command.social": "Social",
+    "command.contact": "Contato",
     
     // Button
     "button.press": "Pressione",
